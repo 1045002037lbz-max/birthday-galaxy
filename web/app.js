@@ -12,11 +12,11 @@ const palettes = [
   ["#fff9f6", "#f6e0d5", "#bb8b76"],
 ];
 const messages = [
-  "希望你永远做自己", "愿你所愿，皆能如愿", "新的一岁，闪闪发光",
-  "愿快乐与你不期而遇", "愿你被这个世界温柔以待", "每一天，都值得被珍藏",
-  "愿你眼里，始终有光", "祝你自由，也祝你勇敢", "愿生活，满是小确幸",
-  "慢慢长大，好好爱自己", "愿你一路繁花，岁岁欢喜", "愿你永远热烈而明亮",
-  "愿所有美好，都奔向你", "愿你平安喜乐，万事胜意", "生日快乐，今天你最大",
+  "愿每一次守候，都有温柔回响", "愿你交班之后，也有人接住疲惫", "愿夜班后的清晨，睡眠完整而安稳",
+  "愿专业被看见，认真被记得", "愿每一次耐心解释，都换来安心的点头", "愿你守护新生，也不忘照顾自己",
+  "愿忙碌的间隙，总有一口热饭和一杯温水", "愿每一份坚定，都有柔软的地方安放", "愿你不只见证新的开始，也常遇见自己的惊喜",
+  "愿那些不被镜头记录的付出，都有人懂得", "愿每次平安交接，都是值得珍藏的小小圆满", "愿你的温柔有边界，善良有力量",
+  "愿你在别人的重要时刻里，也拥有自己的高光", "愿生活给你的回馈，不止一句谢谢", "26岁，愿你被认真照料，也被好好偏爱",
 ];
 
 // 计算半边后按等弧长取点，再接上左半边；顺序始终为右下、左上。
@@ -72,7 +72,7 @@ let active = false;
 let heartbeatTimer = 0;
 let cardInteraction=null;
 
-const BACKGROUND_MUSIC = { src: "", title: "" };
+const BACKGROUND_MUSIC = { src: "audio/liu-yimiao-birthday.mp3", title: "给刘怡苗的专属生日配乐" };
 let backgroundAudio = null;
 let musicEnabled = false;
 let musicWanted = false;
@@ -167,8 +167,8 @@ function createCard(index) {
   const palette = palettes[index % palettes.length];
   ["--paper-top", "--paper-bottom", "--accent"].forEach((property, i) => node.style.setProperty(property, palette[i]));
   node.style.zIndex = index + 1;
-  node.innerHTML = '<div class="card-header"><span class="card-heart" aria-hidden="true">♡</span><span class="card-label">一份小小的祝福</span><button class="card-close" type="button" aria-label="收起这张祝福卡片">×</button></div><p class="card-message"></p><span class="card-footer" aria-hidden="true">HAPPY BIRTHDAY</span>';
-  const namedMessages=recipient?[`${recipient.name}，生日快乐`,`${recipient.name}，愿你自在勇敢`,`${recipient.birthdayAge}岁，继续闪闪发光`,messages[3],`${recipient.name}，愿你平安喜乐`,messages[5],`${recipient.name}，眼里始终有光`,messages[7],messages[8],`${recipient.name}，好好爱自己`,messages[10],messages[11],`${recipient.name}，美好都奔向你`,messages[13],`${recipient.birthdayAge}岁生日，今天你最大`]:messages;
+  node.innerHTML = '<div class="card-header"><span class="card-heart" aria-hidden="true">♡</span><span class="card-label">写给产房里的守护者</span><button class="card-close" type="button" aria-label="收起这张祝福卡片">×</button></div><p class="card-message"></p><span class="card-footer" aria-hidden="true">HAPPY BIRTHDAY</span>';
+  const namedMessages=recipient?[`${recipient.name}，生日快乐`,messages[0],messages[1],messages[2],messages[3],messages[4],messages[5],messages[6],messages[7],messages[8],messages[9],messages[10],messages[11],messages[12],`${recipient.birthdayAge}岁，愿你也成为被守护的人`]:messages;
   const message=namedMessages[index % namedMessages.length];
   node.querySelector(".card-message").textContent = message;
   node.classList.toggle('personal-long',Array.from(message).length>19);
@@ -183,7 +183,11 @@ function createCard(index) {
 }
 
 function replay() {
-  if(!recipient){document.getElementById('birthday-name').focus({preventScroll:true});return;}
+  if(!recipient){// 专属入口：预设姓名与生日，自动完成原有校验，直接进入蛋糕开场页。
+// 音乐仍由她点击开场按钮后启动，符合浏览器的用户手势播放要求。
+document.getElementById('birthday-name').value = '刘怡苗';
+document.getElementById('birthday-password').value = '2000.11.19';
+document.getElementById('identity-form').requestSubmit();return;}
   cakeNavigation++;
   cake?.pause();
   cakeScreen.hidden = true;
@@ -367,7 +371,8 @@ if (!BACKGROUND_MUSIC.src) {
   document.getElementById("start-quiet").hidden = true;
 }
 else document.getElementById('intro-title').textContent='点击开启音乐与祝福';
-// 刘怡苗专属生日入口
+// 专属入口：预设姓名与生日，自动完成原有校验，直接进入蛋糕开场页。
+// 音乐仍由她点击开场按钮后启动，符合浏览器的用户手势播放要求。
 document.getElementById('birthday-name').value = '刘怡苗';
 document.getElementById('birthday-password').value = '2000.11.19';
 document.getElementById('identity-form').requestSubmit();
