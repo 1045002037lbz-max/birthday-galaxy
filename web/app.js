@@ -367,4 +367,7 @@ if (!BACKGROUND_MUSIC.src) {
   document.getElementById("start-quiet").hidden = true;
 }
 else document.getElementById('intro-title').textContent='点击开启音乐与祝福';
-document.getElementById('birthday-name').focus({preventScroll:true});
+// 刘怡苗专属生日入口
+document.getElementById('birthday-name').value = '刘怡苗';
+document.getElementById('birthday-password').value = '2000.11.19';
+document.getElementById('identity-form').requestSubmit();
