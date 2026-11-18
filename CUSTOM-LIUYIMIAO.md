@@ -1,26 +1,19 @@
 # 刘怡苗生日网页定制版
 
-已按需求修改入口：
-- 自动填入姓名：刘怡苗
-- 自动填入生日：2000.11.19
-- 自动完成原项目的生日资料校验，跳过姓名/生日填写页
-- 打开后直接显示原来的蛋糕开场页面
-- 保留原来的“点击开启音乐与祝福”按钮及后续交互
+## 已完成的定制
+- 姓名预设为：刘怡苗。
+- 出生日期预设为：2000.11.19，自动完成原有生日资料校验，跳过姓名/生日填写页。
+- 打开后直接显示原来的蛋糕开场页面。
+- 增加 15 条产科护士主题祝福卡片，以及专属生日祝福信。
+- 添加专门为本网页合成的原创轻柔钢琴/音乐盒风格生日配乐：`web/audio/liu-yimiao-birthday.mp3`。
+- 保留原来的音乐开关、淡入淡出、蛋糕动画、卡片和后续交互。音乐需点击开场按钮后播放，这是浏览器的正常限制。
 
 ## 发布到 GitHub Pages
+1. 先 Fork 原仓库到自己的 GitHub 账号。
+2. 在自己的仓库中，用本项目文件替换对应文件，务必保留 `.github/workflows/pages.yml`、`web/`、`web/audio/liu-yimiao-birthday.mp3` 等目录和文件。
+3. 确认仓库 Settings → Pages → Build and deployment → Source 选择 **GitHub Actions**。
+4. 提交到 `main` 分支后，进入 Actions 等待 `Deploy` 工作流成功。
+5. 成功后在 Settings → Pages 查看发布网址。
 
-1. 解压本压缩包。
-2. 将解压后的项目文件上传/覆盖到你有写入权限的 GitHub 仓库（保留 `.github`、`web` 等目录结构）。
-3. 在仓库 Settings → Pages → Build and deployment → Source 中选择 **GitHub Actions**。
-4. 将修改后的项目推送到 `main` 或 `master` 分支；新增的 `.github/workflows/pages.yml` 会自动把 `web/` 目录发布到 GitHub Pages。
-5. 等待仓库 Actions 中的部署任务成功，进入 Settings → Pages 查看实际网址。
-
-注意：本项目原始开源版默认没有附带背景音乐。若原网站的音乐来自另外添加的音频文件，需把该音频文件一并放入 `web/audio/` 并在 `web/app.js` 的 `BACKGROUND_MUSIC` 配置中设置路径。浏览器仍要求用户点击按钮后才能可靠播放声音。
-
-## 修改入口预设信息
-
-编辑 `web/app.js` 文件末尾的两行：
-```js
-document.getElementById('birthday-name').value = '刘怡苗';
-document.getElementById('birthday-password').value = '2000.11.19';
-```
+## 音乐文件特别提醒
+MP3 文件必须一并上传到 `web/audio/` 目录。`.gitignore` 已为该文件添加例外，不会再被 Git 忽略。不要只上传 `app.js`，否则音乐按钮会出现但没有可播放的音频。

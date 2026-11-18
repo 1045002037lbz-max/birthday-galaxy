@@ -17,5 +17,6 @@ __pycache__/
 *.webm
 web/audio/*
 !web/audio/README.md
+!web/audio/liu-yimiao-birthday.mp3
 .DS_Store
 Thumbs.db
