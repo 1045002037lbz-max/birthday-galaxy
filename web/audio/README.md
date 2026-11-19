@@ -1,19 +1,5 @@
-# 背景音乐
+# 刘怡苗专属生日配乐
 
-本定制版选用 Pixabay 的纯钢琴曲《Peaceful Piano Background》（Universfield，1:37）：
-https://pixabay.com/music/modern-classical-peaceful-piano-background-268021/
+`liu-yimiao-birthday.mp3` 是为本网页专门制作的原创轻柔器乐配乐：以温暖的钢琴音色、音乐盒般的高音点缀和舒缓的和弦铺底构成，适合粉色星河、生日蛋糕与写给产科护士的温柔祝福。曲长约 54 秒，循环播放。
 
-该页面标注可在 Pixabay Content License 下使用。请在 Pixabay 页面点击 Free download 下载 MP3，并保存为：
-
-`web/audio/peaceful-piano-background.mp3`
-
-然后在 `web/app.js` 中设置：
-
-```js
-const BACKGROUND_MUSIC = {
-  src: "audio/peaceful-piano-background.mp3",
-  title: "Peaceful Piano Background"
-};
-```
-
-点击网页原有的蛋糕开场按钮后才会播放，以符合浏览器的自动播放限制。请保留下载页面和许可信息以便日后核对。
+该音频为本项目合成制作，不引用商业歌曲录音或第三方音乐文件。网页仅在访客点击“点击开启音乐与祝福”后播放，以遵守浏览器的用户手势播放限制。
