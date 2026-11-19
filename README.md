@@ -123,3 +123,7 @@ npm run record:entry
 灵感参考 [BirthdayWish](https://github.com/Seeingsprings/BirthdayWish)、[HappyBirthday_Yan-71b87](https://github.com/zonezz/HappyBirthday_Yan-71b87) 与 [Birthday-template](https://github.com/KernelCrafters/Birthday-template)。本仓库只发布重新实现的网页版，保留 [Three.js](https://github.com/mrdoob/three.js/tree/r128) 的 MIT 声明，详见 [第三方说明](web/THIRD-PARTY.md)。
 
 本项目代码以 [MIT License](LICENSE) 开源。欢迎修改祝福、搭配新蛋糕，或者把这片星河送给你在意的人。
+
+
+## 本次定制
+本项目另附 `CUSTOM-PANSHUHAN.md` 定制说明文件；当前定制入口与卡片文案请以 `web/app.js` 和 `web/birthday-profile.js` 为准。
